@@ -14,12 +14,17 @@ To run the file developed so far, clone the repo (or Download Zip file) and run 
 
 
 
-- [ ] Getting coordinates of click
+- [x] Getting coordinates of click
 
   - Taking four coordinates of the screen to crop the image.
+  - Done by @CoderPanda1729 (Prashant Mishra)
 
 
-- [ ] Function to crop the image and save cropped image in the same folder.
+- [x] Function to crop the image and save cropped image in the same folder.
 
   - Taking coordinates as function inputs and writing out the cropped image in the same folder.
+  Done by @CoderPanda1729 (Prashant Mishra)
+
+- [] Makefile and README 
+  - Giving the section of "How to run the code" in README and making the makefile.
   
