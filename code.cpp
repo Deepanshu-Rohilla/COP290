@@ -4,15 +4,17 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/core/persistence.hpp>
+
 using namespace cv;
 using namespace std;
+
 vector<Point2f> pts_src;
 int cnt = 0;
 bool flag=true;
 Mat src,img,ROI;
 Rect cropRect(0,0,0,0);
- Point P1(0,0);
- Point P2(0,0);
+Point P1(0,0);
+Point P2(0,0);
 
 const char* winName="Top-View Image";
 bool clicked=false;
@@ -41,8 +43,8 @@ void showImage(){
         ROI=src(cropRect);
         namedWindow("cropped",WINDOW_FREERATIO);
         imshow("cropped",ROI);
+        imwrite("croppedImage.jpg",ROI);
     }
-
     rectangle(img, cropRect, Scalar(0,255,0), 1, 8, 0 );
     imshow(winName,img);
 }
@@ -86,7 +88,6 @@ void onMouse( int event, int x, int y, int f, void* ){
                 showImage();
     }
 
-
 }
 
 void MouseCallFun(int event, int x, int y, int flags, void* userdata){
@@ -95,6 +96,7 @@ void MouseCallFun(int event, int x, int y, int flags, void* userdata){
         pts_src.push_back(Point2f(x,y));
         cnt++;
     }
+
 
   if(cnt == 4){
     // Read destination image.
@@ -114,21 +116,16 @@ void MouseCallFun(int event, int x, int y, int flags, void* userdata){
     //Warp source image to destination based on homography
     warpPerspective(img, im_out, h, im_dst.size());
 
-    // Display images
-    //imshow("Source Image", img);
-    //imshow("Destination Image", im_dst);
     imwrite("outImg.jpg",im_out);
 
     src=imread("outImg.jpg",1);
     namedWindow(winName,WINDOW_NORMAL);
     setMouseCallback(winName,onMouse,NULL );
     imshow(winName,src);
-    //showImage();
-    
+    cnt++;
     
   }
     waitKey(0); 
-
 }
 int main(){
 
@@ -136,9 +133,7 @@ int main(){
     img = imread(image_path, IMREAD_COLOR);  
 
     imshow("Traffic" , img);
-   
     setMouseCallback("Traffic",MouseCallFun,NULL);
-
     waitKey();
        
 }
