@@ -4,11 +4,12 @@ This is the repository for OpenCV assignment as part COP290: Design Practices co
 ## How to run the file
 1. clone the repo (or Download Zip file)
 2. Open the terminal and give the command: ``` make run ```.
-3. Make sure that the image that you wish to open is present in the same directory of the code.
-4. An executable named `video` will be created. Run the executable with the command: ```./video image_name``` where image_name is the name of the image that you wish to open.
-5. Enter the name along with the extension like .jpg, .jpeg, .png etc.
-6. All the arguments given (if any) after ```./video image_name``` will be ignored.
-7. Some machines may ask for permissions to open the display window. Allow the terminal to take control of the machine.
+3. If you are using opencv4 and some error occur on running ```make run``` command, run the code with ```make run2``` command.
+4. Make sure that the image that you wish to open is present in the same directory of the code.
+5. An executable named `video` will be created. Run the executable with the command: ```./video image_name``` where image_name is the name of the image that you wish to open.
+6. Enter the name along with the extension like .jpg, .jpeg, .png etc.
+7. All the arguments given (if any) after ```./video image_name``` will be ignored.
+8. Some machines may ask for permissions to open the display window. Allow the terminal to take control of the machine.
 
 ## How to crop the image
 1. Once the desired image appears on the screen, you can crop the image using mouse clicks.
