@@ -132,7 +132,7 @@ int main(int argc, char** argv){
     cout<<"Please enter the name of the image. Follow these instructions for more detail:\n";
     cout<<"1. Open the terminal and give the command: make run.\n";
     cout<<"2. An executable named video will be created.\n";
-    cout<<"3. Run the executable with the command: ./video image_name where image_name is the name of the image that you wish to open\n";
+    cout<<"3. Run the executable with the command: ./video image_name where image_name is the name of the image that you wish to open.\n";
     cout<<"4. Enter the name along with the extension like .jpg, .jpeg, .png etc.\n";
     cout<<"5. All the arguments given (if any) after ./video image_name will be ignored.\n";
   }
@@ -148,7 +148,7 @@ int main(int argc, char** argv){
     catch(const std::exception& e)
     {
       cout<<"\nERROR!\n";
-      cout<<"Please enter correct file name\n";
+      cout<<"Please enter correct file name.\n";
       cout<<"Make sure that the image that you wish to open is present in the same directory of the code.\n";
     }
     
