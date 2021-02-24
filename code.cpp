@@ -114,12 +114,12 @@ void MouseCallFun(int event, int x, int y, int flags, void* userdata){
 
     //Output image
     Mat im_out;
-    Mat im_out_grey;
+    Mat im_out_gray;
     //Warp source image to destination based on homography
     warpPerspective(img, im_out, h, im_dst.size());
-    cvtColor(im_out, im_out_grey, COLOR_BGR2GRAY);
+    cvtColor(im_out, im_out_gray, COLOR_BGR2GRAY);
 
-    imwrite("outImg.jpg",im_out_grey);
+    imwrite("outImg.jpg",im_out_gray);
 
     src=imread("outImg.jpg",1);
     namedWindow(winName,WINDOW_NORMAL);
@@ -144,8 +144,11 @@ int main(int argc, char** argv){
     {
       image_path = samples::findFile(argv[1]);
       img = imread(image_path, IMREAD_COLOR);  
-      imshow("Traffic" , img);
-      setMouseCallback("Traffic",MouseCallFun,NULL);
+      Mat img_gray;
+      cvtColor(img, img_gray, COLOR_BGR2GRAY);
+
+      imshow("Image" , img_gray);
+      setMouseCallback("Image",MouseCallFun,NULL);
       waitKey();
     }
     catch(const std::exception& e)
