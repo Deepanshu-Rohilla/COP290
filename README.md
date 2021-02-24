@@ -3,9 +3,11 @@
 This is the repository for OpenCV assignment as part COP290: Design Practices course.  <br /> <br />
 ## How to run the file
 1. clone the repo (or Download Zip file)
-2. Open the terminal and give the command: ``` make run ```
-3. An executable name `a.out` will be created. Run the executable with the command: ```./a.out``` .
-4. Some machines may ask for permissions to open the display windoe. Allow the terminal to take control of the machine.
+2. Open the terminal and give the command: ``` make run ```.
+3. Make sure that the image that you wish to open is present in the same directory of the code.
+4. An executable named `video` will be created. Run the executable with the command: ```./video image_name``` where image_name is the name of the image that you wish to open (along with the extension like .jpg, .jpeg, .png etc.)
+5. All the arguments given (if any) after ```./video image_name``` will be ignored.
+6. Some machines may ask for permissions to open the display windoe. Allow the terminal to take control of the machine.
 
 
 ## To do list(For the reference of developers):
@@ -30,4 +32,7 @@ This is the repository for OpenCV assignment as part COP290: Design Practices co
 
 - [x] Makefile and README 
   - Giving the section of "How to run the code" in README and making the makefile.
+  - Enabling argument passing from the command line.
   - Done by Deepanshu Rohilla
+
+
