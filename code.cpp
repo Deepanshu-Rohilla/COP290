@@ -127,13 +127,29 @@ void MouseCallFun(int event, int x, int y, int flags, void* userdata){
   }
     waitKey(0); 
 }
-int main(){
-
-    string image_path = samples::findFile("traffic.jpg");
-    img = imread(image_path, IMREAD_COLOR);  
-
-    imshow("Traffic" , img);
-    setMouseCallback("Traffic",MouseCallFun,NULL);
-    waitKey();
+int main(int argc, char** argv){
+  if(argc<2){
+    cout<<"yahaan pe samjhaana hai";
+  }
+  else{
+    try
+    {
+      string image_path = samples::findFile(argv[1]);
+      // string image_path = samples::findFile("traffic.jpg");
+      img = imread(image_path, IMREAD_COLOR);  
+      imshow("Traffic" , img);
+      setMouseCallback("Traffic",MouseCallFun,NULL);
+      waitKey();
+    }
+    catch(const std::exception& e)
+    {
+      cout<<"\nERROR!\n Please enter correct file name\n";
+    }
+    
+    
+  }
+      
+      
+    
        
 }
