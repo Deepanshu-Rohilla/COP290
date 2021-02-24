@@ -10,6 +10,14 @@ This is the repository for OpenCV assignment as part COP290: Design Practices co
 6. All the arguments given (if any) after ```./video image_name``` will be ignored.
 7. Some machines may ask for permissions to open the display window. Allow the terminal to take control of the machine.
 
+## How to crop the image
+1. Once the desired image appears on the screen, you can crop the image using mouse clicks.
+2. To get the top view, the points are selected as follows:
+    - First point corresponds to the top left corner.
+    - Second point corresponds to the top right corner.
+    - Third point corresponds to the bottom left corner.
+    - Fourth point corresponds to the bottom right corner.
+
 
 ## To do list(For the reference of developers):
 

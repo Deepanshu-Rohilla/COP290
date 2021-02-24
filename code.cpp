@@ -15,6 +15,7 @@ Mat src,img,ROI;
 Rect cropRect(0,0,0,0);
 Point P1(0,0);
 Point P2(0,0);
+string image_path;
 
 const char* winName="Top-View Image";
 bool clicked=false;
@@ -100,7 +101,7 @@ void MouseCallFun(int event, int x, int y, int flags, void* userdata){
 
   if(cnt == 4){
     // Read destination image.
-    Mat im_dst = imread("traffic.jpg");
+    Mat im_dst = imread(image_path);
     // Four corners of the book in destination image.
     vector<Point2f> pts_dst;
     pts_dst.push_back(Point2f(472,52));
@@ -113,10 +114,12 @@ void MouseCallFun(int event, int x, int y, int flags, void* userdata){
 
     //Output image
     Mat im_out;
+    Mat im_out_grey;
     //Warp source image to destination based on homography
     warpPerspective(img, im_out, h, im_dst.size());
+    cvtColor(im_out, im_out_grey, COLOR_BGR2GRAY);
 
-    imwrite("outImg.jpg",im_out);
+    imwrite("outImg.jpg",im_out_grey);
 
     src=imread("outImg.jpg",1);
     namedWindow(winName,WINDOW_NORMAL);
@@ -139,7 +142,7 @@ int main(int argc, char** argv){
   else{
     try
     {
-      string image_path = samples::findFile(argv[1]);
+      image_path = samples::findFile(argv[1]);
       img = imread(image_path, IMREAD_COLOR);  
       imshow("Traffic" , img);
       setMouseCallback("Traffic",MouseCallFun,NULL);
